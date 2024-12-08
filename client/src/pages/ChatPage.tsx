@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Header } from '../components/Header';
 import { ChatSidebar } from '../components/ChatSidebar';
 import { ChatWindow } from '../components/ChatWindow';
 import { useAuthStore } from '../store/authStore';
@@ -40,9 +41,10 @@ export const ChatPage: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-100">
-      <div className="container mx-auto py-8 px-4 h-screen max-w-6xl">
-        <div className="bg-white rounded-lg shadow-lg overflow-hidden h-[calc(100vh-4rem)]">
+    <div className="min-h-screen bg-gray-100 flex flex-col">
+      <Header />
+      <div className="flex-1 container mx-auto py-6 px-4 max-w-6xl">
+        <div className="bg-white rounded-lg shadow-lg overflow-hidden h-[calc(100vh-8rem)]">
           <div className="flex h-full">
             <ChatSidebar
               chats={chats}
