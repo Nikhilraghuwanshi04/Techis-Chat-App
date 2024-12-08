@@ -59,6 +59,7 @@ export const useAuthStore = create<AuthState>((set) => ({
     } catch (error: any) {
       localStorage.removeItem('token');
       localStorage.removeItem('user');
+      console.error('Login error:', error);  // Log the full error for debugging
       const errorMessage = error.response?.data?.message || 'Login failed. Please check your credentials.';
       set({ error: errorMessage, loading: false, user: null });
       throw error;
@@ -84,6 +85,7 @@ export const useAuthStore = create<AuthState>((set) => ({
     } catch (error: any) {
       localStorage.removeItem('token');
       localStorage.removeItem('user');
+      console.error('Registration error:', error);  // Log the full error for debugging
       const errorMessage = error.response?.data?.message || 'Registration failed. Please try again.';
       set({ error: errorMessage, loading: false, user: null });
       throw error;
